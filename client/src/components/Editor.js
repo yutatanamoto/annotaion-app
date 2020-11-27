@@ -3,14 +3,9 @@ import Button from '@material-ui/core/Button';
 import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpandArrowsAlt, FaEraser, FaUndo, FaRedo, FaBrain, FaEyeSlash, FaEye } from 'react-icons/fa'
 
 const imageExt = ".jpg";
-const maskImageExt = ".png";
 const editor = "tanamoto";
 
 const Editor = props =>  {
-  // const classes = useStyles();
-
-  const sampleName = props.location.state.sampleName;
-  const annotatedSampleNames = props.location.state.annotatedSampleNames;
 
   const originX = 0;
   const originY = 0;
