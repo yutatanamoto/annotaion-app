@@ -25,7 +25,6 @@ const Editor = props =>  {
   const [redoStack, setRedoStack] = useState([]);
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
-  const [editLog, setEditLog] = useState([]);
   const [editings, setEditings] = useState([]);
   const [editLogs, setEditLogs] = useState([]);
 
@@ -80,6 +79,7 @@ const Editor = props =>  {
       ctx.beginPath();
       ctx.moveTo(x, y);
       coordinatesRef.current = [{x:x, y:y}];
+      setEditLogs();
     }
     event.stopPropagation();
     event.preventDefault();
@@ -210,8 +210,6 @@ const Editor = props =>  {
     ctx.clearRect(0,0,canvasRef.current.width,canvasRef.current.height);
   };
   const resetState = () => {
-    setEditLog([]);
-    setEditLogs([]);
     coordinatesRef.current = [];
     setColor("#0F0");
     setRedoStack([]);
@@ -271,8 +269,6 @@ const Editor = props =>  {
   };
   const setMaskLogger = () => {
     const time = new Date().getTime();
-    setEditLog(editLog+[{editor: editor, operation: "setMaskFromUnet", time: time}]);
-    setEditLogs(editLogs+[{editor: editor, operation: "setMaskFromUnet", time: time}]);
   };
   const toSampleList = () => {
     const time = new Date().getTime();
