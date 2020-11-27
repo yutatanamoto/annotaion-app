@@ -27,7 +27,7 @@ const Editor = props =>  {
   const [endTime, setEndTime] = useState(0);
   const [editLog, setEditLog] = useState([]);
   const [editings, setEditings] = useState([]);
-  const [editLogAll, setEditLogAll] = useState([]);
+  const [editLogs, setEditLogs] = useState([]);
 
   const canvasRef = useRef(null);
   const canvasContainerRef = useRef(null);
@@ -211,14 +211,14 @@ const Editor = props =>  {
   };
   const resetState = () => {
     setEditLog([]);
-    setEditLogAll([]);
+    setEditLogs([]);
     coordinatesRef.current = [];
     setColor("#0F0");
     setRedoStack([]);
     setScale(1);
   };
   const addToLog = data => {
-    setEditLogAll(editLogAll+[data]);
+    setEditLogs(editLogs+[data]);
   };
   const undo = () => {
     if(editings.length>0){
@@ -272,7 +272,7 @@ const Editor = props =>  {
   const setMaskLogger = () => {
     const time = new Date().getTime();
     setEditLog(editLog+[{editor: editor, operation: "setMaskFromUnet", time: time}]);
-    setEditLogAll(editLogAll+[{editor: editor, operation: "setMaskFromUnet", time: time}]);
+    setEditLogs(editLogs+[{editor: editor, operation: "setMaskFromUnet", time: time}]);
   };
   const toSampleList = () => {
     const time = new Date().getTime();
@@ -288,7 +288,7 @@ const Editor = props =>  {
           endTime: endTime,
           image:dataURL,
           sampleName:sampleName,
-          editLog:editLogAll,
+          editLog:editLogs,
         }),
       })
       .then(()=>{console.log("back to sample list")})
