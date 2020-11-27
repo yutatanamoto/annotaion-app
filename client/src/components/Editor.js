@@ -13,10 +13,11 @@ const Editor = props =>  {
   const sampleName = props.location.state.sampleName;
   const annotatedSampleNames = props.location.state.annotatedSampleNames;
 
+  const originX = 0;
+  const originY = 0;
+
   const [display, setDisplay] = useState(true);
   const [scale, setScale] = useState(1);
-  const [originX, setOriginX] = useState(0);
-  const [originY, setOriginY] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [operation, setOperation] = useState("draw");
