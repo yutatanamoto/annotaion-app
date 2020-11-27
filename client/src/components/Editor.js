@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpandArrowsAlt, FaEraser, FaUndo, FaRedo, FaBrain, FaEyeSlash, FaEye } from 'react-icons/fa'
 
