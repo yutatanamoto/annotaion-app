@@ -72,25 +72,25 @@ const Editor = props =>  {
     if(y < 0){y = 0}
     else if(y > canvasRef.current.width){y = canvasRef.current.width}
     const ctx = getContext();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
+    if (coordinatesRef.current.length !== 0) {
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      coordinatesRef.current = [...coordinatesRef.current, {x:x, y:y}];
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      coordinatesRef.current = [{x:x, y:y}];
+    }
     event.stopPropagation();
     event.preventDefault();
-    const time = new Date().getTime();
-    coordinatesRef.current = [];
-    coordinatesRef.current = [{x:x, y:y}];
   };
   const draw = event => {
     let x=(event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current;
     let y=(event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current;
     if(x < 0){x = 0}
-    else if(x > canvasRef.current.width){
-      x = canvasRef.current.width;
-    }
+    else if(x > canvasRef.current.width){x = canvasRef.current.width;}
     if(y < 0){y = 0}
-    else if(y > canvasRef.current.height){
-      y = canvasRef.current.height;
-    }
+    else if(y > canvasRef.current.width){y = canvasRef.current.width;}
     const ctx = getContext();
     ctx.strokeStyle = colorRef.current;
     ctx.globalCompositeOperation = "destination-out";
@@ -105,13 +105,23 @@ const Editor = props =>  {
     event.preventDefault();
   };
   const endDrawing = event => {
-    const ctx = getContext();
-    ctx.closePath();
-    fillInsideLine(colorRef.current, coordinatesRef.current);
-    const newEditings = [...editingsRef.current, {editor: editor, operation: operationRef.current, color:colorRef.current, coordinates: coordinatesRef.current}];
-    updateEditings(newEditings);
-    coordinatesRef.current = [];
-    setRedoStack([]);
+    let lastCoordinate = coordinatesRef.current[coordinatesRef.current.length-1];
+    let lastX = lastCoordinate.x;
+    let lastY = lastCoordinate.y;
+    let startCoordinate = coordinatesRef.current[0];
+    let startX = startCoordinate.x;
+    let startY = startCoordinate.y;
+    let distance = Math.sqrt((lastX - startX)**2 + (lastY - startY)**2)
+    if (distance < 10) {
+      alert(distance);
+      const ctx = getContext();
+      ctx.closePath();
+      fillInsideLine(colorRef.current, coordinatesRef.current);
+      const newEditings = [...editingsRef.current, {editor: editor, operation: operationRef.current, color:colorRef.current, coordinates: coordinatesRef.current}];
+      updateEditings(newEditings);
+      coordinatesRef.current = [];
+      setRedoStack([]);
+    } 
   };
   const fillInsideLine = (color_, coordinates_) => {
     const ctx = getContext();
