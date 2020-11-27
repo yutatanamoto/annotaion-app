@@ -38,6 +38,7 @@ const Editor = props =>  {
   const alphaRef = useRef(alpha);
   const operationRef = useRef(operation);
   const displayRef = useRef(display);
+  const editLogsRef = useRef(editLogs);
 
   useEffect(() => {
     const time = new Date().getTime();
@@ -65,6 +66,7 @@ const Editor = props =>  {
     return canvasRef.current.getContext('2d');
   };
   const startDrawing = event => {
+    const currentTime = new Date().getTime();
     let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current
     let y = (event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current
     if(x < 0){x = 0}
@@ -76,11 +78,26 @@ const Editor = props =>  {
       ctx.lineTo(x, y);
       ctx.stroke();
       coordinatesRef.current = [...coordinatesRef.current, {x:x, y:y}];
+      let editLog = {
+        editted_at: currentTime,
+        operation_type: 'draw_line',
+        x: x,
+        y: y,
+        editted_by: editor
+      }
+      setEditLogs([...editLogsRef.current, editLog]);
     } else {
       ctx.beginPath();
       ctx.moveTo(x, y);
       coordinatesRef.current = [{x:x, y:y}];
-      setEditLogs();
+      let editLog = {
+        editted_at: currentTime,
+        operation_type: 'start_drawing',
+        x: x,
+        y: y,
+        editted_by: editor
+      }
+      setEditLogs([...editLogsRef.current, editLog]);
     }
     event.stopPropagation();
     event.preventDefault();
@@ -100,12 +117,21 @@ const Editor = props =>  {
     ctx.globalCompositeOperation = 'source-over';
     ctx.lineTo(x, y);
     ctx.stroke();
-    const time = new Date().getTime();
     coordinatesRef.current = [...coordinatesRef.current, {x:x, y:y}];
+    const currentTime = new Date().getTime();
+    let editLog = {
+      editted_at: currentTime,
+      operation_type: 'draw_line',
+      x: x,
+      y: y,
+      editted_by: editor
+    }
+    setEditLogs([...editLogsRef.current, editLog]);
     event.stopPropagation();
     event.preventDefault();
   };
   const endDrawing = event => {
+    const currentTime = new Date().getTime();
     let lastCoordinate = coordinatesRef.current[coordinatesRef.current.length-1];
     let lastX = lastCoordinate.x;
     let lastY = lastCoordinate.y;
@@ -122,7 +148,24 @@ const Editor = props =>  {
       updateEditings(newEditings);
       coordinatesRef.current = [];
       setRedoStack([]);
-    } 
+      let editLog = {
+        editted_at: currentTime,
+        operation_type: 'end_drawing',
+        x: NaN,
+        y: NaN,
+        editted_by: editor
+      }
+      setEditLogs([...editLogsRef.current, editLog]);
+    } else {
+      let editLog = {
+        editted_at: currentTime,
+        operation_type: 'draw_line',
+        x: NaN,
+        y: NaN,
+        editted_by: editor
+      }
+      setEditLogs([...editLogsRef.current, editLog]);
+    }
   };
   const fillInsideLine = (color_, coordinates_) => {
     const ctx = getContext();
