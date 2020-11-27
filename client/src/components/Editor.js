@@ -253,15 +253,6 @@ const Editor = props =>  {
     const ctx = getContext();
     ctx.clearRect(0,0,canvasRef.current.width,canvasRef.current.height);
   };
-  const resetState = () => {
-    coordinatesRef.current = [];
-    setColor("#0F0");
-    setRedoStack([]);
-    setScale(1);
-  };
-  const addToLog = data => {
-    setEditLogs(editLogs+[data]);
-  };
   const undo = () => {
     if(editings.length>0){
       fillInsideLine("#FFF", [{x:0,y:0}, {x:canvasRef.current.width,y:0}, {x:canvasRef.current.width,y:canvasRef.current.height}, {x:0,y:canvasRef.current.height}, {x:0,y:0}])
@@ -310,29 +301,6 @@ const Editor = props =>  {
       ctx.drawImage(maskImage,0,0,canvasRef.current.width,canvasRef.current.height);
 
     }
-  };
-  const setMaskLogger = () => {
-    const time = new Date().getTime();
-  };
-  const toSampleList = () => {
-    const time = new Date().getTime();
-    const canvas=canvasRef.current;
-    const dataURL = canvas.toDataURL();
-    const fetch = require('node-fetch');
-    this.setState({endTime:time}, ()=>{
-      fetch(`${process.env.REACT_APP_DEV_API_URL}/api/save`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          startTime: startTime,
-          endTime: endTime,
-          image:dataURL,
-          sampleName:sampleName,
-          editLog:editLogs,
-        }),
-      })
-      .then(()=>{console.log("back to sample list")})
-    })
   };
   const scaleUp = () => {
     const newScale = scale + 0.25;
