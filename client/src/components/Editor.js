@@ -18,8 +18,6 @@ const Editor = props =>  {
   const [color, setColor] = useState("#0F0");
   const [alpha, setAlpha] = useState(0.3);
   const [redoStack, setRedoStack] = useState([]);
-  const [startTime, setStartTime] = useState(0);
-  const [endTime, setEndTime] = useState(0);
   const [editings, setEditings] = useState([]);
   const [editLogs, setEditLogs] = useState([]);
 
@@ -36,7 +34,6 @@ const Editor = props =>  {
 
   useEffect(() => {
     const time = new Date().getTime();
-    setStartTime(time);
     canvasContainerRef.current.addEventListener("scroll", ()=>{
       setScrollLeft(canvasContainerRef.current.scrollLeft);
       setScrollTop(canvasContainerRef.current.scrollTop);
