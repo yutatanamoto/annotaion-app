@@ -263,7 +263,6 @@ const Editor = props =>  {
       updateEditings(newEditings);
       setRedoStack(newRedoStack);
       fromData(newEditings);
-      fromData(newEditings);
     }
   };
   const fromData = data => {
