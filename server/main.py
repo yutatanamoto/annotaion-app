@@ -1,6 +1,6 @@
 import os
 import glob
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 image_dir = 'build/static/image'
 image_ext = '.jpg'
@@ -17,6 +17,11 @@ def get_sample_names():
     response = {'sampleNames': sample_names, 'annotatedSampleNames': []}
     print(response)
     return jsonify(response)
+
+@app.route('/api/save', methods=["POST"])
+def save():
+    print(request.json["editLogs"])
+    return jsonify({"message": "OK"}), 200
 
 if __name__ == "__main__":
     app.run(debug=False, host='0.0.0.0', port=5000)
