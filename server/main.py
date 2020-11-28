@@ -23,12 +23,11 @@ def get_sample_names():
 @app.route('/api/save', methods=["POST"])
 def save():
     request_json = request.json
-    print(request_json)
     sample_name = request_json['sampleName']
     edit_logs = request_json['editLogs']
     editor = request_json   ['editor']
     save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
-    with open(save_path, 'w') as f:
+    with open(save_path, 'a') as f:
         json.dump(edit_logs, f, indent=4)
     return jsonify({"message": "OK"}), 200
 
