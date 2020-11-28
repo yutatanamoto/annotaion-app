@@ -61,6 +61,7 @@ const Editor = props =>  {
   };
   const startDrawing = event => {
     const currentTime = new Date().getTime();
+    let force = event.targetTouches[0].force;
     let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current
     let y = (event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current
     if(x < 0){x = 0}
@@ -77,6 +78,7 @@ const Editor = props =>  {
         operation_type: 'draw_line',
         x: x,
         y: y,
+        force: force,
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
@@ -90,6 +92,7 @@ const Editor = props =>  {
         operation_type: 'start_drawing',
         x: x,
         y: y,
+        force: force,
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
@@ -115,11 +118,13 @@ const Editor = props =>  {
     ctx.stroke();
     coordinatesRef.current = [...coordinatesRef.current, {x:x, y:y}];
     const currentTime = new Date().getTime();
+    let force = event.targetTouches[0].force;
     let editLog = {
       editted_at: currentTime,
       operation_type: 'draw_line',
       x: x,
       y: y,
+      force: force,
       editted_by: editor
     }
     setEditLogs([...editLogsRef.current, editLog]);
@@ -152,6 +157,7 @@ const Editor = props =>  {
         operation_type: 'end_drawing',
         x: NaN,
         y: NaN,
+        force: NaN,
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
