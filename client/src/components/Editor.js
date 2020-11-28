@@ -149,15 +149,6 @@ const Editor = props =>  {
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
-    } else {
-      let editLog = {
-        editted_at: currentTime,
-        operation_type: 'draw_line',
-        x: NaN,
-        y: NaN,
-        editted_by: editor
-      }
-      setEditLogs([...editLogsRef.current, editLog]);
     }
   };
   const fillInsideLine = (color_, coordinates_) => {
