@@ -1,12 +1,14 @@
 import os
 import glob
 import json
+import base64
 from io import BytesIO
 from PIL import Image
 from flask import Flask, render_template, jsonify, request
 
 image_dir = 'build/static/image'
 image_ext = '.jpg'
+mask_image_dir = './results/masks'
 log_dir = './results/logs'
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 
@@ -30,6 +32,8 @@ def save():
     base64_image = request_json['image'].split(',')[1]
     code = base64.b64decode(base64_image)
     image = Image.open(BytesIO(code))
+    image_save_path = '{}/{}__{}.png'.format(mask_image_dir, editor, sample_name)
+    image.save(image_save_path)
     json_save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
     if os.path.isfile(json_save_path):
         with open(json_save_path, 'r') as f:
