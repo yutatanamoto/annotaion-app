@@ -5,6 +5,7 @@ import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpa
 const imageExt = ".jpg";
 const editor = "tanamoto";
 const distanceTreshold = 10;
+const startPointSize = 16;
 
 const Editor = props =>  {
 
@@ -21,6 +22,8 @@ const Editor = props =>  {
   const [redoStack, setRedoStack] = useState([]);
   const [editings, setEditings] = useState([]);
   const [editLogs, setEditLogs] = useState([]);
+  const [initialCoordinate, setInitialCoordinate] = useState({});
+  const [drawing, setDrawing] = useState(false);
 
   const canvasRef = useRef(null);
   const canvasContainerRef = useRef(null);
@@ -78,6 +81,7 @@ const Editor = props =>  {
       }
       setEditLogs([...editLogsRef.current, editLog]);
     } else {
+      setInitialCoordinate({x: x, y: y});
       ctx.beginPath();
       ctx.moveTo(x, y);
       coordinatesRef.current = [{x:x, y:y}];
@@ -94,6 +98,7 @@ const Editor = props =>  {
     event.preventDefault();
   };
   const draw = event => {
+    setDrawing(true);
     let x=(event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current;
     let y=(event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current;
     if(x < 0){x = 0}
@@ -131,6 +136,7 @@ const Editor = props =>  {
     let startY = startCoordinate.y;
     let distance = Math.sqrt((lastX - startX)**2 + (lastY - startY)**2)
     if (distance < distanceTreshold) {
+      setDrawing(false);
       const ctx = getContext();
       ctx.closePath();
       eraseInsideLine(coordinatesRef.current);
@@ -338,6 +344,7 @@ const Editor = props =>  {
     blueGreenButton: {cursor: 'pointer', margin: '5px', color: '#0FF',width:"40px",height:"40px"},
     blackButton: {cursor: 'pointer', margin: '5px', color: 'black',width:"40px",height:"40px"},
     brain: {cursor: 'pointer', margin: '5px', width:"40px", height:"40px", color:"#0FF"},
+    rect:{zIndex:"10", position:"absolute", border: 'solid', marginLeft:`${initialCoordinate.x-startPointSize/2}px`,  marginTop:`${initialCoordinate.y-startPointSize/2}px`, width:`${startPointSize}px`, height:`${startPointSize}px`, borderRadius: '50%', opacity:`${drawing ? 1 : 0}`},
   }
   const iconSize="50%";
   return (
@@ -355,6 +362,7 @@ const Editor = props =>  {
            style={styles.canvas}
          >
          </canvas>
+         <div style={styles.rect}></div>
        </div>
        <div style={styles.subImageContainer}>
          <div style={styles.rect1}></div>
