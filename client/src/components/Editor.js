@@ -133,7 +133,10 @@ const Editor = props =>  {
       alert(distance);
       const ctx = getContext();
       ctx.closePath();
-      fillInsideLine(colorRef.current, coordinatesRef.current);
+      eraseInsideLine(coordinatesRef.current);
+      if (colorRef.current !== '#FFF') {
+        fillInsideLine(colorRef.current, coordinatesRef.current);
+      }
       const newEditings = [...editingsRef.current, {editor: editor, operation: operationRef.current, color:colorRef.current, coordinates: coordinatesRef.current}];
       updateEditings(newEditings);
       coordinatesRef.current = [];
@@ -159,7 +162,21 @@ const Editor = props =>  {
   };
   const fillInsideLine = (color_, coordinates_) => {
     const ctx = getContext();
-    ctx.fillStyle = colorRef.current;
+    ctx.strokeStyle = color_;
+    ctx.fillStyle = color_;
+    ctx.globalAlpha = 0.3;
+    ctx.globalCompositeOperation = "source-over";
+    ctx.beginPath();
+    ctx.moveTo(coordinates_[0].x, coordinates_[0].y);
+    for (let coordinate_property in coordinates_.slice(1)){
+      ctx.lineTo(coordinates_[coordinate_property].x, coordinates_[coordinate_property].y);
+      ctx.stroke();
+    }
+    ctx.closePath();
+    ctx.fill();
+  };
+  const eraseInsideLine = coordinates_ => {
+    const ctx = getContext();
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
@@ -170,20 +187,6 @@ const Editor = props =>  {
     }
     ctx.closePath();
     ctx.fill();
-    if(color_ !== "#FFF"){
-      ctx.strokeStyle = color_;
-      ctx.fillStyle = color_;
-      ctx.globalAlpha = 0.3;
-      ctx.globalCompositeOperation = "source-over";
-      ctx.beginPath();
-      ctx.moveTo(coordinates_[0].x, coordinates_[0].y);
-      for (let coordinate_property in coordinates_.slice(1)){
-        ctx.lineTo(coordinates_[coordinate_property].x, coordinates_[coordinate_property].y);
-        ctx.stroke();
-      }
-      ctx.closePath();
-      ctx.fill();
-    }
   };
   const touchAndFill = event => {
     const startX= parseInt((event.touches[0].pageX-event.target.getBoundingClientRect().left)/scale);
@@ -245,7 +248,7 @@ const Editor = props =>  {
   };
   const undo = () => {
     if(editings.length>0){
-      fillInsideLine("#FFF", [{x:0,y:0}, {x:canvasRef.current.width,y:0}, {x:canvasRef.current.width,y:canvasRef.current.height}, {x:0,y:canvasRef.current.height}, {x:0,y:0}])
+      eraseInsideLine([{x:0,y:0}, {x:canvasRef.current.width,y:0}, {x:canvasRef.current.width,y:canvasRef.current.height}, {x:0,y:canvasRef.current.height}, {x:0,y:0}])
       const newEditings = editings.slice(0,-1);
       const newRedoStack = [...redoStack, editings.slice(-1)[0]]
       updateEditings(newEditings);
@@ -268,7 +271,10 @@ const Editor = props =>  {
       const editLog_ = data[index];
       console.log(editLog_.operation);
       if (editLog_.operation === "draw") {
-        fillInsideLine(editLog_.color, editLog_.coordinates);
+        eraseInsideLine(editLog_.coordinates);
+        if (editLog_.color !== '#FFF') {
+          fillInsideLine(editLog_.color, editLog_.coordinates);
+        }
       }
       else if (editLog_.operation === "fill") {
         floodFill(editLog_.color, editLog_.coordinate);
