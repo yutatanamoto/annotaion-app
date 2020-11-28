@@ -33,7 +33,6 @@ const Editor = props =>  {
   const editLogsRef = useRef(editLogs);
 
   useEffect(() => {
-    const time = new Date().getTime();
     canvasContainerRef.current.addEventListener("scroll", ()=>{
       setScrollLeft(canvasContainerRef.current.scrollLeft);
       setScrollTop(canvasContainerRef.current.scrollTop);
