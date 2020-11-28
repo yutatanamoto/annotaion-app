@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 flask-cors = "*"
 mysql-connector-python = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
