@@ -131,7 +131,6 @@ const Editor = props =>  {
     let startY = startCoordinate.y;
     let distance = Math.sqrt((lastX - startX)**2 + (lastY - startY)**2)
     if (distance < distanceTreshold) {
-      alert(distance);
       const ctx = getContext();
       ctx.closePath();
       eraseInsideLine(coordinatesRef.current);
