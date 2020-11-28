@@ -60,6 +60,7 @@ const Editor = props =>  {
     return canvasRef.current.getContext('2d');
   };
   const startDrawing = event => {
+    console.log("editLogsRef.current -> ", editLogsRef.current)
     const currentTime = new Date().getTime();
     let force = event.targetTouches[0].force;
     let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current
@@ -82,6 +83,7 @@ const Editor = props =>  {
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
+      editLogsRef.current = [...editLogsRef.current, editLog];
     } else {
       setInitialCoordinate({x: x, y: y});
       ctx.beginPath();
@@ -96,6 +98,7 @@ const Editor = props =>  {
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
+      editLogsRef.current = [...editLogsRef.current, editLog];
     }
     event.stopPropagation();
     event.preventDefault();
@@ -128,6 +131,7 @@ const Editor = props =>  {
       editted_by: editor
     }
     setEditLogs([...editLogsRef.current, editLog]);
+    editLogsRef.current = [...editLogsRef.current, editLog];
     event.stopPropagation();
     event.preventDefault();
   };
@@ -161,6 +165,7 @@ const Editor = props =>  {
         editted_by: editor
       }
       setEditLogs([...editLogsRef.current, editLog]);
+      editLogsRef.current = [...editLogsRef.current, editLog];
     }
   };
   const fillInsideLine = (color_, coordinates_) => {
@@ -327,6 +332,24 @@ const Editor = props =>  {
     setOperation(newOperation);
     operationRef.current = newOperation;
   };
+  const save = () => {
+    const dataURL = canvasRef.current.toDataURL();
+    const obj = {
+      image: dataURL,
+      sampleName: props.location.sampleName,
+      editLogs: editLogs,
+    }
+    const body = JSON.stringify(obj);
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+    const method = "POST";
+    const fetch = require('node-fetch');
+    fetch(`${process.env.REACT_APP_DEV_API_URL}/api/save`, {method, headers, body})
+      .then(res => res.json())
+      .then(json => console.log(json))
+  };
 
   const styles = {
     nameForm:{border:"solid 0px"},
@@ -393,6 +416,7 @@ const Editor = props =>  {
      <Button variant="outline-secondary" style={styles.button} onClick={() => {undo(this)}}><FaUndo style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {redo(this)}}><FaRedo style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {toggleMask(this)}}>{display ? <FaEyeSlash style = {{margin:"auto"}} size={iconSize}/> : <FaEye size={iconSize}/>}</Button>
+     <Button variant="contained" style={styles.button} onClick={()=>save()}>Save</Button>
      </div>
    </div>
  );
