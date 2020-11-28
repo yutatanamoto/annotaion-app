@@ -30,14 +30,14 @@ def save():
     base64_image = request_json['image'].split(',')[1]
     code = base64.b64decode(base64_image)
     image = Image.open(BytesIO(code))
-    save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
-    if os.path.isfile(save_path):
-        with open(save_path, 'r') as f:
+    json_save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
+    if os.path.isfile(json_save_path):
+        with open(json_save_path, 'r') as f:
             edit_logs = json.load(f)
         edit_logs.extend(request_json['editLogs'])
     else:
         edit_logs = request_json['editLogs']
-    with open(save_path, 'w') as f:
+    with open(json_save_path, 'w') as f:
         json.dump(edit_logs, f, indent=4)
     return jsonify({"message": "OK"}), 200
 
