@@ -1,9 +1,11 @@
 import os
 import glob
+import json
 from flask import Flask, render_template, jsonify, request
 
 image_dir = 'build/static/image'
 image_ext = '.jpg'
+log_dir = './results/logs'
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 
 @app.route("/")
@@ -20,7 +22,14 @@ def get_sample_names():
 
 @app.route('/api/save', methods=["POST"])
 def save():
-    print(request.json["editLogs"])
+    request_json = request.json
+    print(request_json)
+    sample_name = request_json['sampleName']
+    edit_logs = request_json['editLogs']
+    editor = request_json   ['editor']
+    save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
+    with open(save_path, 'w') as f:
+        json.dump(edit_logs, f, indent=4)
     return jsonify({"message": "OK"}), 200
 
 if __name__ == "__main__":
