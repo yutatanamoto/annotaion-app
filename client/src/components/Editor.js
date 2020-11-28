@@ -259,7 +259,6 @@ const Editor = props =>  {
   const fromData = data => {
     for(let index in data){
       const editLog_ = data[index];
-      console.log(editLog_.operation);
       if (editLog_.operation === "draw") {
         eraseInsideLine(editLog_.coordinates);
         if (editLog_.color !== '#FFF') {
