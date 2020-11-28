@@ -16,7 +16,7 @@ def get_sample_names():
     sample_names = [os.path.splitext(os.path.basename(path))[0] for path in image_path_list]
     response = {'sampleNames': sample_names, 'annotatedSampleNames': []}
     print(response)
-    return jsonify(response)
+    return jsonify(response), 200
 
 @app.route('/api/save', methods=["POST"])
 def save():
