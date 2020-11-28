@@ -334,8 +334,9 @@ const Editor = props =>  {
   const save = () => {
     const dataURL = canvasRef.current.toDataURL();
     const obj = {
+      editor: editor,
       image: dataURL,
-      sampleName: props.location.sampleName,
+      sampleName: props.location.state.sampleName,
       editLogs: editLogs,
     }
     const body = JSON.stringify(obj);
