@@ -4,6 +4,7 @@ import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpa
 
 const imageExt = ".jpg";
 const editor = "tanamoto";
+const distanceTreshold = 10;
 
 const Editor = props =>  {
 
@@ -129,7 +130,7 @@ const Editor = props =>  {
     let startX = startCoordinate.x;
     let startY = startCoordinate.y;
     let distance = Math.sqrt((lastX - startX)**2 + (lastY - startY)**2)
-    if (distance < 10) {
+    if (distance < distanceTreshold) {
       alert(distance);
       const ctx = getContext();
       ctx.closePath();
