@@ -34,7 +34,6 @@ const SampleList = props => {
       .then(res =>res.json())
       .then(json=>{
         setSampleNames(json["sampleNames"]);
-        console.log(sampleNames);
         setAnnotatedSampleNames(json["annotatedSampleNames"]);
       })
   };
