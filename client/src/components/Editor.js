@@ -60,7 +60,6 @@ const Editor = props =>  {
     return canvasRef.current.getContext('2d');
   };
   const startDrawing = event => {
-    console.log("editLogsRef.current -> ", editLogsRef.current)
     const currentTime = new Date().getTime();
     let force = event.targetTouches[0].force;
     let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current
