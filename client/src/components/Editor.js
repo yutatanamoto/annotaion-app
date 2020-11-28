@@ -380,15 +380,6 @@ const Editor = props =>  {
      <Button variant="outline-secondary" style={styles.button} onClick={() => {undo(this)}}><FaUndo style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {redo(this)}}><FaRedo style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {toggleMask(this)}}>{display ? <FaEyeSlash style = {{margin:"auto"}} size={iconSize}/> : <FaEye size={iconSize}/>}</Button>
-     <Button
-      variant="outline-secondary"
-      style={styles.brain}
-      onClick={() => {
-       clearCanvas();
-       setRedoStack([]);
-      }}>
-      <FaBrain style = {{margin:"auto"}} size={iconSize}/>
-     </Button>
      </div>
    </div>
  );
