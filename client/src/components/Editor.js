@@ -6,6 +6,16 @@ const imageExt = ".jpg";
 const editor = "tanamoto";
 const distanceTreshold = 10;
 const startPointSize = 16;
+const colors = [
+  {name: "green", code: "#0F0"},
+  {name: "blue", code: "#00F"},
+  {name: "red", code: "#F00"},
+  {name: "aqua", code: "#0FF"},
+  {name: "purple", code: "#F0F"},
+  {name: "yellow", code: "#FF0"},
+  {name: "black", code: "#000"},
+];
+
 
 const Editor = props =>  {
 
@@ -407,10 +417,9 @@ const Editor = props =>  {
      <Button variant="outline-secondary" style={styles.button} onClick={() => {updateOperation("scroll")}}><FaHandPointUp style = {{margin:"auto"}}size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={scaleDown}><FaCompressArrowsAlt style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={scaleUp}><FaExpandArrowsAlt style = {{margin:"auto"}} size={iconSize}/></Button>
-     <Button variant="outline-secondary" style={styles.greenButton} onClick={() => updateColor("#0F0")}><FaCircle style = {{margin:"auto"}} size={iconSize}/></Button>
-     <Button variant="outline-secondary" style={styles.blueButton} onClick={() => updateColor("#00F")}><FaCircle style = {{margin:"auto"}} size={iconSize}/></Button>
-     <Button variant="outline-secondary" style={styles.blueGreenButton} onClick={() => updateColor("#0FF")}><FaCircle style = {{margin:"auto"}} size={iconSize}/></Button>
-     <Button variant="outline-secondary" style={styles.blackButton} onClick={() => updateColor("#000")}><FaCircle style = {{margin:"auto"}} size={iconSize}/></Button>
+     {colors.map((color, key) => {
+       return <Button key={key} variant="outline-secondary" style={styles.button} onClick={() => updateColor(color.code)}><FaCircle color={color.code} style = {{margin:"auto"}} size={iconSize}/></Button>
+     })}
      <Button variant="outline-secondary" style={styles.button} onClick={() => updateColor("#FFF")}><FaEraser style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {undo(this)}}><FaUndo style = {{margin:"auto"}} size={iconSize}/></Button>
      <Button variant="outline-secondary" style={styles.button} onClick={() => {redo(this)}}><FaRedo style = {{margin:"auto"}} size={iconSize}/></Button>
