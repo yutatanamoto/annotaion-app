@@ -372,7 +372,6 @@ const Editor = props =>  {
     blueButton: {cursor: 'pointer', margin: '5px', color: 'blue',width:"40px",height:"40px"},
     blueGreenButton: {cursor: 'pointer', margin: '5px', color: '#0FF',width:"40px",height:"40px"},
     blackButton: {cursor: 'pointer', margin: '5px', color: 'black',width:"40px",height:"40px"},
-    brain: {cursor: 'pointer', margin: '5px', width:"40px", height:"40px", color:"#0FF"},
     startPoint:{zIndex:"10", position:"absolute", border: 'solid', marginLeft:`${(initialCoordinate.x-startPointSize/2)*scale}px`,  marginTop:`${(initialCoordinate.y-startPointSize/2)*scale}px`, width:`${startPointSize}px`, height:`${startPointSize}px`, borderRadius: '50%', opacity:`${drawing ? 1 : 0}`},
   }
   const iconSize="50%";
