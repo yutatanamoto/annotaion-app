@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from '@material-ui/core/Button';
-import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpandArrowsAlt, FaEraser, FaUndo, FaRedo, FaBrain, FaEyeSlash, FaEye } from 'react-icons/fa'
+import { FaCircle, FaPen, FaFillDrip, FaHandPointUp, FaCompressArrowsAlt, FaExpandArrowsAlt, FaEraser, FaUndo, FaRedo, FaEyeSlash, FaEye } from 'react-icons/fa'
 
 const imageExt = ".jpg";
 const editor = "tanamoto";
