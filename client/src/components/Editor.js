@@ -88,6 +88,7 @@ const Editor = props =>  {
         operation_type: 'draw_line',
         x: x,
         y: y,
+        color: colorRef.current,
         force: force,
         editted_by: editor
       }
@@ -103,6 +104,7 @@ const Editor = props =>  {
         operation_type: 'start_drawing',
         x: x,
         y: y,
+        color: colorRef.current,
         force: force,
         editted_by: editor
       }
@@ -136,6 +138,7 @@ const Editor = props =>  {
       operation_type: 'draw_line',
       x: x,
       y: y,
+      color: colorRef.current,
       force: force,
       editted_by: editor
     }
@@ -170,6 +173,7 @@ const Editor = props =>  {
         operation_type: 'end_drawing',
         x: NaN,
         y: NaN,
+        color: NaN,
         force: NaN,
         editted_by: editor
       }
