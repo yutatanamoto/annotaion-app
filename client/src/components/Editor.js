@@ -361,9 +361,16 @@ const Editor = props =>  {
     const method = "POST";
     const fetch = require('node-fetch');
     fetch(`${process.env.REACT_APP_DEV_API_URL}/api/save`, {method, headers, body})
-      .then(res => res.json())
-      .then(json => console.log(json))
+      .then(handleErrors)
+      .then(setEditLogs([]), editLogsRef.current=[])
+      .catch(error => console.log(error));
   };
+  const handleErrors = response => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+  }
 
   const styles = {
     nameForm:{border:"solid 0px"},
