@@ -27,20 +27,24 @@ def get_sample_names():
 @app.route('/api/save', methods=["POST"])
 def save():
     request_json = request.json
-    sample_name = request_json['sampleName']
-    editor = request_json   ['editor']
+    sample_name = request_json['sample_name']
+    editor = request_json['editor']
     base64_image = request_json['image'].split(',')[1]
     code = base64.b64decode(base64_image)
     image = Image.open(BytesIO(code))
     image_save_path = '{}/{}__{}.png'.format(mask_image_dir, editor, sample_name)
     image.save(image_save_path)
     json_save_path = '{}/{}__{}.json'.format(log_dir, editor, sample_name)
-    if os.path.isfile(json_save_path):
-        with open(json_save_path, 'r') as f:
-            edit_logs = json.load(f)
-        edit_logs.extend(request_json['editLogs'])
-    else:
-        edit_logs = request_json['editLogs']
+    mode = request.args.get('mode')
+    if mode == 'write' or mode is None:
+        edit_logs = request_json['edit_logs']
+    elif mode == 'add':
+        if os.path.isfile(json_save_path):
+            with open(json_save_path, 'r') as f:
+                edit_logs = json.load(f)
+            edit_logs.extend(request_json['editLogs'])
+        else:
+            edit_logs = request_json['editLogs']
     with open(json_save_path, 'w') as f:
         json.dump(edit_logs, f, indent=4)
     return jsonify({"message": "OK"}), 200
