@@ -1,7 +1,7 @@
 [
     {
-        "editted_at": 1608608435632,
-        "editted_at_": 1608608435632,
+        "editted_at": 1608635214849,
+        "editted_at_": 1608635214849,
         "sample_name": "58",
         "operation_type": "initialize",
         "x": null,
@@ -11,8 +11,8 @@
         "editted_by": "test"
     },
     {
-        "editted_at": 1608608436858,
-        "editted_at_": 1608608436849.3142,
+        "editted_at": 1608635214852,
+        "editted_at_": 1608635214843.299,
         "sample_name": "58",
         "operation_type": "start",
         "x": null,
@@ -22,30 +22,8 @@
         "editted_by": "test"
     },
     {
-        "editted_at": 1608608454571,
-        "editted_at_": 1608608454570.1091,
-        "sample_name": "58",
-        "operation_type": "start_drawing",
-        "x": 334.01409912109375,
-        "y": 442.3030700683594,
-        "color": "#0F0",
-        "force": 0.5,
-        "editted_by": "test"
-    },
-    {
-        "editted_at": 1608608454622,
-        "editted_at_": 1608608454620.464,
-        "sample_name": "58",
-        "operation_type": "end_drawing",
-        "x": null,
-        "y": null,
-        "color": null,
-        "force": null,
-        "editted_by": "test"
-    },
-    {
-        "editted_at": 1608608455309,
-        "editted_at_": 1608608455300.759,
+        "editted_at": 1608635215312,
+        "editted_at_": 1608635215303.854,
         "sample_name": "58",
         "operation_type": "save",
         "x": null,

@@ -1,0 +1,35 @@
+[
+    {
+        "editted_at": 1608617987177,
+        "editted_at_": 1608617987177,
+        "sample_name": "60",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "sato_practice"
+    },
+    {
+        "editted_at": 1608617987681,
+        "editted_at_": 1608617987673.773,
+        "sample_name": "60",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "sato_practice"
+    },
+    {
+        "editted_at": 1608617991040,
+        "editted_at_": 1608617991031.6528,
+        "sample_name": "60",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "sato_practice"
+    }
+]

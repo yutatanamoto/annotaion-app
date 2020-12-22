@@ -1,7 +1,7 @@
 [
     {
-        "editted_at": 1608608455626,
-        "editted_at_": 1608608455626,
+        "editted_at": 1608635215449,
+        "editted_at_": 1608635215449,
         "sample_name": "59",
         "operation_type": "initialize",
         "x": null,
@@ -11,8 +11,8 @@
         "editted_by": "test"
     },
     {
-        "editted_at": 1608608455812,
-        "editted_at_": 1608608455800.9492,
+        "editted_at": 1608635215694,
+        "editted_at_": 1608635215690.029,
         "sample_name": "59",
         "operation_type": "start",
         "x": null,
@@ -22,8 +22,8 @@
         "editted_by": "test"
     },
     {
-        "editted_at": 1608608458659,
-        "editted_at_": 1608608458651.424,
+        "editted_at": 1608635216154,
+        "editted_at_": 1608635216149.439,
         "sample_name": "59",
         "operation_type": "save",
         "x": null,

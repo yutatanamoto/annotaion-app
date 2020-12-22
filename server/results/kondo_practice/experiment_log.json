@@ -1,0 +1,137 @@
+[
+    {
+        "at": 1608624269547,
+        "participant_name": "kondo_practice",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608624273204,
+        "participant_name": "kondo_practice",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608624275554,
+        "participant_name": "kondo_practice",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608624285570,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608624291695,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608624305405,
+        "participant_name": "kondo_practice",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608624359040,
+        "participant_name": "kondo_practice",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608624360723,
+        "participant_name": "kondo_practice",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608624366739,
+        "participant_name": "kondo_practice",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608626025764,
+        "participant_name": "kondo_practice",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608626029643,
+        "participant_name": "kondo_practice",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608626030500,
+        "participant_name": "kondo_practice",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608626040517,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608626046643,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608626052006,
+        "participant_name": "kondo_practice",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608626096176,
+        "participant_name": "kondo_practice",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608626100630,
+        "participant_name": "kondo_practice",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608626106641,
+        "participant_name": "kondo_practice",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608626549829,
+        "participant_name": "kondo_practice",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608626557699,
+        "participant_name": "kondo_practice",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608626558286,
+        "participant_name": "kondo_practice",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608626568296,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608626574415,
+        "participant_name": "kondo_practice",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608626576914,
+        "participant_name": "kondo_practice",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608626609144,
+        "participant_name": "kondo_practice",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608626613933,
+        "participant_name": "kondo_practice",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608626619948,
+        "participant_name": "kondo_practice",
+        "event_name": "experiment_completed"
+    }
+]

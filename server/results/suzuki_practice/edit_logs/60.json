@@ -1,0 +1,35 @@
+[
+    {
+        "editted_at": 1608635911368,
+        "editted_at_": 1608635911368,
+        "sample_name": "60",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "suzuki_practice"
+    },
+    {
+        "editted_at": 1608635911594,
+        "editted_at_": 1608635911586.7349,
+        "sample_name": "60",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "suzuki_practice"
+    },
+    {
+        "editted_at": 1608635912024,
+        "editted_at_": 1608635912016.055,
+        "sample_name": "60",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "suzuki_practice"
+    }
+]

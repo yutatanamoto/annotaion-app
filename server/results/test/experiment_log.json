@@ -173,5 +173,145 @@
         "at": 1608608484256,
         "participant_name": "test",
         "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608616772249,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608616867650,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608616904592,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608616914611,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608616920794,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608616929825,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608617048864,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608617092956,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608617098974,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608622755552,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608622765617,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608622808965,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608622818977,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608622825352,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608622828755,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608622838586,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608622841187,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608622847204,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608635105848,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608635144820,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608635181835,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608635186314,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608635196328,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608635202608,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608635204729,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608635217673,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608635220060,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608635226081,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
     }
 ]

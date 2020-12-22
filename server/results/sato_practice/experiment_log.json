@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608617812420,
+        "participant_name": "sato_practice",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608617819220,
+        "participant_name": "sato_practice",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608617826656,
+        "participant_name": "sato_practice",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608617836673,
+        "participant_name": "sato_practice",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608617842911,
+        "participant_name": "sato_practice",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608617891551,
+        "participant_name": "sato_practice",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608617991503,
+        "participant_name": "sato_practice",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608617993530,
+        "participant_name": "sato_practice",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608617999545,
+        "participant_name": "sato_practice",
+        "event_name": "experiment_completed"
+    }
+]
