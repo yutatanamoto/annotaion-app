@@ -1,0 +1,57 @@
+[
+    {
+        "editted_at": 1608528851207,
+        "editted_at_": 1608528851207,
+        "sample_name": "57",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "dev"
+    },
+    {
+        "editted_at": 1608528851442,
+        "editted_at_": null,
+        "sample_name": "57",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "dev"
+    },
+    {
+        "editted_at": 1608528851729,
+        "editted_at_": null,
+        "sample_name": "57",
+        "operation_type": "start_drawing",
+        "x": 442,
+        "y": 620.5,
+        "color": "#0F0",
+        "force": 0,
+        "editted_by": "dev"
+    },
+    {
+        "editted_at": 1608528851771,
+        "editted_at_": null,
+        "sample_name": "57",
+        "operation_type": "end_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "dev"
+    },
+    {
+        "editted_at": 1608528852144,
+        "editted_at_": null,
+        "sample_name": "57",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "dev"
+    }
+]

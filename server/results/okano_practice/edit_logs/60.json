@@ -1,0 +1,35 @@
+[
+    {
+        "editted_at": 1608610784787,
+        "editted_at_": 1608610784787,
+        "sample_name": "60",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "okano_practice"
+    },
+    {
+        "editted_at": 1608610785431,
+        "editted_at_": 1608610785423.1216,
+        "sample_name": "60",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "okano_practice"
+    },
+    {
+        "editted_at": 1608610785960,
+        "editted_at_": 1608610785951.8616,
+        "sample_name": "60",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "okano_practice"
+    }
+]

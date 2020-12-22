@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608605231594,
+        "participant_name": "mashima",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608605240285,
+        "participant_name": "mashima",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608605303628,
+        "participant_name": "mashima",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608605313643,
+        "participant_name": "mashima",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608605373918,
+        "participant_name": "mashima",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608605424976,
+        "participant_name": "mashima",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608606852145,
+        "participant_name": "mashima",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608606908467,
+        "participant_name": "mashima",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608606968485,
+        "participant_name": "mashima",
+        "event_name": "experiment_completed"
+    }
+]

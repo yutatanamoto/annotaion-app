@@ -1,0 +1,57 @@
+[
+    {
+        "at": 1608281753271,
+        "participant_name": "suzuki",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608281823261,
+        "participant_name": "suzuki",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608281876485,
+        "participant_name": "suzuki",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608281919391,
+        "participant_name": "suzuki",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608282004243,
+        "participant_name": "suzuki",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608282072538,
+        "participant_name": "suzuki",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608282082559,
+        "participant_name": "suzuki",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608282142582,
+        "participant_name": "suzuki",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608283650559,
+        "participant_name": "suzuki",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608283710662,
+        "participant_name": "suzuki",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608283779188,
+        "participant_name": "suzuki",
+        "event_name": "experiment_completed"
+    }
+]

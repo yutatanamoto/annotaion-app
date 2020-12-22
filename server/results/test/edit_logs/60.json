@@ -1,0 +1,57 @@
+[
+    {
+        "editted_at": 1608608458838,
+        "editted_at_": 1608608458838,
+        "sample_name": "60",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "test"
+    },
+    {
+        "editted_at": 1608608459109,
+        "editted_at_": 1608608459091.6492,
+        "sample_name": "60",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "test"
+    },
+    {
+        "editted_at": 1608608459173,
+        "editted_at_": 1608608459172.0142,
+        "sample_name": "60",
+        "operation_type": "start_drawing",
+        "x": 384.9405517578125,
+        "y": 370.9061279296875,
+        "color": "#0F0",
+        "force": 0.5,
+        "editted_by": "test"
+    },
+    {
+        "editted_at": 1608608459203,
+        "editted_at_": 1608608459202.3591,
+        "sample_name": "60",
+        "operation_type": "end_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "test"
+    },
+    {
+        "editted_at": 1608608459980,
+        "editted_at_": 1608608459970.5742,
+        "sample_name": "60",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "test"
+    }
+]

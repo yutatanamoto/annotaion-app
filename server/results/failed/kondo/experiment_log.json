@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608189969039,
+        "participant_name": "kondo",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608189990541,
+        "participant_name": "kondo",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608190068480,
+        "participant_name": "kondo",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608190128761,
+        "participant_name": "kondo",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608190138778,
+        "participant_name": "kondo",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608190198803,
+        "participant_name": "kondo",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608190692412,
+        "participant_name": "kondo",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608190752553,
+        "participant_name": "kondo",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608190809827,
+        "participant_name": "kondo",
+        "event_name": "experiment_completed"
+    }
+]

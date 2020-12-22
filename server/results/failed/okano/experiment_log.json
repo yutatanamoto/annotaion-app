@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608267601657,
+        "participant_name": "okano",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608267643868,
+        "participant_name": "okano",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608267714137,
+        "participant_name": "okano",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608267764495,
+        "participant_name": "okano",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608267774513,
+        "participant_name": "okano",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608267834526,
+        "participant_name": "okano",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608268859443,
+        "participant_name": "okano",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608268919538,
+        "participant_name": "okano",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608268967826,
+        "participant_name": "okano",
+        "event_name": "experiment_completed"
+    }
+]

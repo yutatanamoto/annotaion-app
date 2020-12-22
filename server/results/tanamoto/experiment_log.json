@@ -1,0 +1,152 @@
+[
+    {
+        "at": 1608083018831,
+        "participant_name": "tanamoto",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608083021050,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608083064360,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608083090757,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608083100777,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608083105828,
+        "participant_name": "tanamoto",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608087146181,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608087147540,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608087161393,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608087171413,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608087176468,
+        "participant_name": "tanamoto",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608087238765,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608087239730,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608087240720,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608087241470,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608087243778,
+        "participant_name": "tanamoto",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608087265105,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608087266652,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608087284989,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608087295007,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608087300040,
+        "participant_name": "tanamoto",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608120348962,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608120461800,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608120479148,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608120489162,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608120494194,
+        "participant_name": "tanamoto",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608168912668,
+        "participant_name": "tanamoto",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608168912911,
+        "participant_name": "tanamoto",
+        "event_name": "praparation_started"
+    },
+    {
+        "at": 1608168913209,
+        "participant_name": "tanamoto",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608168913507,
+        "participant_name": "tanamoto",
+        "event_name": "instruction_started"
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608528772742,
+        "participant_name": "dev",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608528773315,
+        "participant_name": "dev",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608528781304,
+        "participant_name": "dev",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608528791340,
+        "participant_name": "dev",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608528797444,
+        "participant_name": "dev",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608528813444,
+        "participant_name": "dev",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608528855422,
+        "participant_name": "dev",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608528867511,
+        "participant_name": "dev",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608528873530,
+        "participant_name": "dev",
+        "event_name": "experiment_completed"
+    }
+]

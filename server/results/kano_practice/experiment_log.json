@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608542974723,
+        "participant_name": "practice",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608542984422,
+        "participant_name": "practice",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608543003645,
+        "participant_name": "practice",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608543013656,
+        "participant_name": "practice",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608543020015,
+        "participant_name": "practice",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608543035523,
+        "participant_name": "practice",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608543102409,
+        "participant_name": "practice",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608543124809,
+        "participant_name": "practice",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608543130824,
+        "participant_name": "practice",
+        "event_name": "experiment_completed"
+    }
+]
