@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608727440455,
+        "participant_name": "kubota",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608727446799,
+        "participant_name": "kubota",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608727474310,
+        "participant_name": "kubota",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608727484318,
+        "participant_name": "kubota",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608727544549,
+        "participant_name": "kubota",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608727615985,
+        "participant_name": "kubota",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608728705366,
+        "participant_name": "kubota",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608728745050,
+        "participant_name": "kubota",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608728805065,
+        "participant_name": "kubota",
+        "event_name": "experiment_completed"
+    }
+]

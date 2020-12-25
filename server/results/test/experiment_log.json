@@ -313,5 +313,260 @@
         "at": 1608635226081,
         "participant_name": "test",
         "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608703592670,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608706463582,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608706468587,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608706478598,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608706484819,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608706488105,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608706512664,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608706515508,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608706521530,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608707470828,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608707476842,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608724330407,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608724989530,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608725004260,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608725014276,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608725020487,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608725038810,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608725107127,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608725112742,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608725118753,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608725226296,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608725226692,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608725227290,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608725227962,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608725229251,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608725232305,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608725234313,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608791565668,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608791619085,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608792009240,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608792019256,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608792025534,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608792034076,
+        "participant_name": "test",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608792197282,
+        "participant_name": "test",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608792204141,
+        "participant_name": "test",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608792210155,
+        "participant_name": "test",
+        "event_name": "experiment_completed"
+    },
+    {
+        "at": 1608872099517,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608880653199,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608880661274,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608880666316,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608880676332,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608880723731,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608880724230,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608882470548,
+        "participant_name": "test",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608882471527,
+        "participant_name": "test",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608882472862,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608882482876,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608882543140,
+        "participant_name": "test",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608882617358,
+        "participant_name": "test",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608882618211,
+        "participant_name": "test",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608882618935,
+        "participant_name": "test",
+        "event_name": "instruction_started"
     }
 ]

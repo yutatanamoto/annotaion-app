@@ -1,0 +1,35 @@
+[
+    {
+        "editted_at": 1608726089473,
+        "editted_at_": 1608726089473,
+        "sample_name": "58",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota_practice"
+    },
+    {
+        "editted_at": 1608726089982,
+        "editted_at_": 1608726089976.8608,
+        "sample_name": "58",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota_practice"
+    },
+    {
+        "editted_at": 1608726090830,
+        "editted_at_": 1608726090821.9058,
+        "sample_name": "58",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota_practice"
+    }
+]

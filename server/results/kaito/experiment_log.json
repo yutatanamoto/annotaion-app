@@ -1,0 +1,47 @@
+[
+    {
+        "at": 1608883212570,
+        "participant_name": "kaito",
+        "event_name": "measurement_started"
+    },
+    {
+        "at": 1608883222329,
+        "participant_name": "kaito",
+        "event_name": "instruction_started"
+    },
+    {
+        "at": 1608883248838,
+        "participant_name": "kaito",
+        "event_name": "preparation_started"
+    },
+    {
+        "at": 1608883258851,
+        "participant_name": "kaito",
+        "event_name": "pre_rest_started"
+    },
+    {
+        "at": 1608883319122,
+        "participant_name": "kaito",
+        "event_name": "pre_questionnaire_started"
+    },
+    {
+        "at": 1608883384460,
+        "participant_name": "kaito",
+        "event_name": "task_started"
+    },
+    {
+        "at": 1608884263133,
+        "participant_name": "kaito",
+        "event_name": "post_questionnaire_started"
+    },
+    {
+        "at": 1608884324261,
+        "participant_name": "kaito",
+        "event_name": "post_rest_started"
+    },
+    {
+        "at": 1608884384274,
+        "participant_name": "kaito",
+        "event_name": "experiment_completed"
+    }
+]

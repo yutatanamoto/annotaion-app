@@ -1,0 +1,35 @@
+[
+    {
+        "editted_at": 1608880909113,
+        "editted_at_": 1608880909113,
+        "sample_name": "58",
+        "operation_type": "initialize",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kaito"
+    },
+    {
+        "editted_at": 1608880909446,
+        "editted_at_": 1608880909443.285,
+        "sample_name": "58",
+        "operation_type": "start",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kaito"
+    },
+    {
+        "editted_at": 1608880911651,
+        "editted_at_": 1608880911647.1047,
+        "sample_name": "58",
+        "operation_type": "save",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kaito"
+    }
+]
