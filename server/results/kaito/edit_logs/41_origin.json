@@ -6116,6 +6116,17 @@
         "editted_by": "kaito"
     },
     {
+        "editted_at": 1608884097252,
+        "editted_at_": 1608884097251.4658,
+        "sample_name": "41",
+        "operation_type": "stop_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kaito"
+    },
+    {
         "editted_at": 1608884097256,
         "editted_at_": 1608884097255.8508,
         "sample_name": "41",

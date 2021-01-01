@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
+import post from './Utils';
 
+const duration = 60000;
 const useStyles = makeStyles({
   root: {
-      height: "100%",
-      width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    width: "100%",
   },
   crossContainer: {
       margin: "auto",
-      marginTop: 200,
       position: "relative",
-      height: 300,
-      width: 300,
+      height: 100,
+      width: 100,
   },
   horizontalRect: {
       position: "absolute",
@@ -33,15 +38,42 @@ const useStyles = makeStyles({
 const RestScreen = props => {
   const classes = useStyles();
 
-  const toTask = () => { 
+  const participantName = props.location.state.participantName;
+  const type = props.location.state.type;
+
+  const toQuestionnaire = () => {
     props.history.push({
-      pathname: "/experiment/task",
-      state: {sampleName: "sample_image", annotatedSampleNames: []}
+      pathname: "/experiment/questionnaire",
+      state: {participantName: participantName, type: "pre"}
     });
   }
+  const toFin = () => {
+    props.history.push({
+      pathname: "/experiment/fin",
+      state: {participantName: participantName}
+    });
+  };
+  const _post = () => {
+    const currentTime = new Date().getTime();
+    const log = {
+      at: currentTime,
+      participant_name: participantName,
+      event_name: `${type}_rest_started`,
+    };
+    const obj = {
+      participant_name: participantName,
+        log: log,
+    };
+    post(obj);
+  };
 
   useEffect(() => {
-    setTimeout(toTask, 6000);
+    _post();
+    if (type === "pre") {
+      setTimeout(toQuestionnaire, duration);
+    } else {
+      setTimeout(toFin, duration);
+    }
   }, []);
 
   return(

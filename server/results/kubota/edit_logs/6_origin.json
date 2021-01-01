@@ -9900,6 +9900,17 @@
         "editted_by": "kubota"
     },
     {
+        "editted_at": 1608727763349,
+        "editted_at_": 1608727763348.4983,
+        "sample_name": "6",
+        "operation_type": "stop_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota"
+    },
+    {
         "editted_at": 1608727763361,
         "editted_at_": 1608727763350.528,
         "sample_name": "6",
@@ -18972,6 +18983,17 @@
         "y": 277.5,
         "color": "#0F0",
         "force": 0.8525390625,
+        "editted_by": "kubota"
+    },
+    {
+        "editted_at": 1608727773699,
+        "editted_at_": 1608727773693.9583,
+        "sample_name": "6",
+        "operation_type": "stop_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
         "editted_by": "kubota"
     },
     {

@@ -1,46 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { withRouter } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
+import post from './Utils';
 
 const useStyles = makeStyles({
   root: {
-      height: "100%",
-      width: "100%",
-  },
-  crossContainer: {
-      margin: "auto",
-      marginTop: 200,
-      position: "relative",
-      height: 300,
-      width: 300,
-  },
-  horizontalRect: {
-      position: "absolute",
-      marginTop: "45%",
-      height: "10%",
-      width: "100%",
-      backgroundColor: "gray",
-  },
-  verticalRect: {
-      position: "absolute",
-      marginLeft: "45%",
-      height: "100%",
-      width: "10%",
-      backgroundColor: "gray",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    width: "100%",
   },
 });
+
+const step = 1000;
+const duration = 10000;
 
 const PeparationScreen = props => {
   const classes = useStyles();
 
-  const remainingTimeRef = useRef(10000);
+  const participantName = props.location.state.participantName;
+
+  const remainingTimeRef = useRef(duration);
   const timerRef = useRef(null);
 
-  const [remainingTime, setRemainingTime] = useState(10000);
+  const [remainingTime, setRemainingTime] = useState(duration);
 
   const updateTime = () => {
-      if (remainingTimeRef.current > 100) {
-          remainingTimeRef.current -= 100;
+      if (remainingTimeRef.current > step) {
+          remainingTimeRef.current -= step;
           let newRemainingTime = remainingTimeRef.current;
           setRemainingTime(newRemainingTime);
       } else {
@@ -51,18 +40,37 @@ const PeparationScreen = props => {
   const toRest = () => {
     props.history.push({
       pathname: "/experiment/rest",
+      state: {participantName: participantName, type: "pre"}
     });
-  }
+  };
+  const _post = () => {
+    const currentTime = new Date().getTime();
+    const log = {
+      at: currentTime,
+      participant_name: participantName,
+      event_name: "preparation_started",
+    };
+    const obj = {
+      participant_name: participantName,
+        log: log,
+    };
+    post(obj);
+  };
 
   useEffect(() => {
-    timerRef.current = setInterval(updateTime, 100);
+    _post();
+    timerRef.current = setInterval(updateTime, step);
   }, []);
 
   return(
     <div className={classes.root}>
-      <div className={classes.crossContainer}>
-  レストまで{remainingTime/1000}秒
-      </div>
+      <b>
+        レストまであと{remainingTime/1000}秒です。
+      </b>
+      <br/>
+      <b>
+        レスト中は中央に表示される十字を注視していてください。
+      </b>
     </div>
   );
 }

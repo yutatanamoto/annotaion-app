@@ -10582,6 +10582,28 @@
         "editted_by": "kano"
     },
     {
+        "editted_at": 1608544619180,
+        "editted_at_": 1608544618990.695,
+        "sample_name": "19",
+        "operation_type": "draw_line",
+        "x": 630,
+        "y": 286.4599914550781,
+        "color": "#0F0",
+        "force": 0.5,
+        "editted_by": "kano"
+    },
+    {
+        "editted_at": 1608544619181,
+        "editted_at_": 1608544619006.22,
+        "sample_name": "19",
+        "operation_type": "end_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kano"
+    },
+    {
         "editted_at": 1608544621596,
         "editted_at_": 1608544621591.24,
         "sample_name": "19",

@@ -29,7 +29,7 @@ class MyAppBar extends React.Component{
       <SearchIcon />
       <InputBase
       placeholder="Search…"
-      inputProps={{ 'aria-label': 'search' }}
+      inputProps={{'aria-label': 'search'}}
       onChange={(e)=>{this.props.searchOnChange(e)}}
       value = {this.props.value}
       />

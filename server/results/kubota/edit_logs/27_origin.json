@@ -11990,6 +11990,17 @@
         "editted_by": "kubota"
     },
     {
+        "editted_at": 1608728241381,
+        "editted_at_": 1608728241378.298,
+        "sample_name": "27",
+        "operation_type": "stop_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota"
+    },
+    {
         "editted_at": 1608728241388,
         "editted_at_": 1608728241381.3232,
         "sample_name": "27",

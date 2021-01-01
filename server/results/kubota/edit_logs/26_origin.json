@@ -19063,6 +19063,28 @@
         "editted_by": "kubota"
     },
     {
+        "editted_at": 1608728225177,
+        "editted_at_": 1608728225162.693,
+        "sample_name": "26",
+        "operation_type": "draw_line",
+        "x": 461.5,
+        "y": 36,
+        "color": "#0F0",
+        "force": 0.5,
+        "editted_by": "kubota"
+    },
+    {
+        "editted_at": 1608728225182,
+        "editted_at_": 1608728225178.693,
+        "sample_name": "26",
+        "operation_type": "end_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "kubota"
+    },
+    {
         "editted_at": 1608728225893,
         "editted_at_": 1608728225887.8433,
         "sample_name": "26",

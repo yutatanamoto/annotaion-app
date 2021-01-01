@@ -11,9 +11,10 @@ const useStyles = makeStyles({
      justifyContent: "space-around",
      height: "100%",
      width: "100%",
+     padding: 20,
   },
-  card: {
-     maxWidth: 200,
+  button:{
+    height: 60
   },
 });
 
@@ -22,7 +23,7 @@ const RestScreen = props => {
 
   const toExperiment = () => {
     props.history.push({
-      pathname: "/experiment/preparation",
+      pathname: "/experiment/setting",
     });
   }
   const toSampleList = () => {
@@ -33,8 +34,8 @@ const RestScreen = props => {
 
   return(
     <div className={classes.root}>
-        <Button onClick={toExperiment}>Experiment</Button>
-        <Button onClick={toSampleList}>Annotation</Button>
+        <Button variant="contained" color="secondary" className={classes.button} onClick={toExperiment}>Experiment</Button>
+        <Button variant="contained" color="secondary" className={classes.button} onClick={toSampleList}>Annotation</Button>
     </div>
   );
 }

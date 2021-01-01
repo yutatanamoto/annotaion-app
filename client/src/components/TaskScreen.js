@@ -2,15 +2,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import Button from '@material-ui/core/Button';
 import { FaUndo, FaRedo } from 'react-icons/fa'
 import { makeStyles } from '@material-ui/core/styles';
+import post from './Utils';
 
 const useStyles = makeStyles({
-  button: {
-     margin: 10,
-  },
+    root: {
+        display: "flex",
+        flexDirection: "column",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: 'center',
+        height: "100%",
+        width: "100%",
+    },
+    button: {
+        margin: 10,
+    },
 });
 
-const imageExt = ".jpg";
-const editor = "tanamoto";
+const imageExt = ".png";
 const distanceTreshold = 20;
 const startPointSize = 40;
 const sampleNames = [
@@ -54,22 +63,41 @@ const sampleNames = [
     "38",
     "39",
     "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    // "51",
+    // "52",
+    // "53",
+    // "54",
+    // "55",
+    // "56",
+    // "57",
+    // "58",
+    // "59",
+    // "60",
 ];
 
 const TaskScreen = props =>  {
     const classes = useStyles();
 
+    const participantName = props.location.state.participantName;
+
     const originX = 0;
     const originY = 0;
+    const time = new Date().getMinutes();
 
-    const [sampleName, setSampleName] = useState(sampleNames[0])
-    const [display, setDisplay] = useState(true);
-    const [scale, setScale] = useState(1);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [scrollTop, setScrollTop] = useState(0);
-    const [operation, setOperation] = useState("draw");
-    const [color, setColor] = useState("#000");
-    const [alpha, setAlpha] = useState(0.3);
+    const [sampleName, setSampleName] = useState(sampleNames[0]);
+    const [sampleIndex, SetSampleIndex] = useState(0);
+    const [isTaskOngoing, setIsTaskOngoing] = useState(false);
+    const [color, setColor] = useState("#0F0");
     const [redoStack, setRedoStack] = useState([]);
     const [editings, setEditings] = useState([]);
     const [editLogs, setEditLogs] = useState([]);
@@ -81,38 +109,21 @@ const TaskScreen = props =>  {
     const canvasContainerRef = useRef(null);
     const coordinatesRef = useRef([]);
     const editingsRef = useRef(editings);
-    const scaleRef = useRef(scale);
     const colorRef = useRef(color);
-    const alphaRef = useRef(alpha);
-    const operationRef = useRef(operation);
-    const displayRef = useRef(display);
     const editLogsRef = useRef(editLogs);
     const sampleIndexRef = useRef(0);
     const sampleNameRef = useRef(sampleName);
 
     useEffect(() => {
+        _post();
         initialize();
-        canvasContainerRef.current.addEventListener("scroll", ()=>{
-            setScrollLeft(canvasContainerRef.current.scrollLeft);
-            setScrollTop(canvasContainerRef.current.scrollTop);
-        });
-        canvasRef.current.addEventListener("touchstart", event =>{
-            if(operationRef.current === "draw" & displayRef.current){startDrawing(event)}
-            else if(operationRef.current==="fill"){touchAndFill(event)}},
-            {passive:false}
-        );
-        canvasRef.current.addEventListener("touchmove", event =>{
-            if(operationRef.current === "draw" & displayRef.current){draw(event)}},
-            {passive:false}
-        );
-        canvasRef.current.addEventListener("touchend", event =>{
-            if(operationRef.current === "draw" & displayRef.current){endDrawing(event)}},
-            {passive:false}
-        );
+        canvasRef.current.addEventListener("touchstart", startDrawing, {passive:false});
+        canvasRef.current.addEventListener("touchmove", draw, {passive:false});
+        canvasRef.current.addEventListener("touchend", endDrawing, {passive:false});
     }, []);
     useEffect(() => {
         if (saving) {
-            post();
+            postResult();
             setSaving(false);
         }
     }, [saving, editLogs]);
@@ -127,8 +138,8 @@ const TaskScreen = props =>  {
         const currentTime = new Date().getTime();
         const timeOrigin = performance.timeOrigin;
         const force = event.targetTouches[0].force;
-        let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current
-        let y = (event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current
+        let x = (event.touches[0].pageX-event.target.getBoundingClientRect().left);
+        let y = (event.touches[0].pageY-event.target.getBoundingClientRect().top);
         if(x < 0){x = 0}
         else if(x > canvasRef.current.width){x = canvasRef.current.width;}
         if(y < 0){y = 0}
@@ -147,7 +158,7 @@ const TaskScreen = props =>  {
                 y: y,
                 color: colorRef.current,
                 force: force,
-                editted_by: editor
+                editted_by: participantName
             };
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
@@ -165,7 +176,7 @@ const TaskScreen = props =>  {
                 y: y,
                 color: colorRef.current,
                 force: force,
-                editted_by: editor
+                editted_by: participantName
             }
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
@@ -176,10 +187,9 @@ const TaskScreen = props =>  {
     const draw = event => {
         const currentTime = new Date().getTime();
         const timeOrigin = performance.timeOrigin;
-        console.log("diff -> ", timeOrigin+event.timeStamp-currentTime);
         setDrawing(true);
-        let x=(event.touches[0].pageX-event.target.getBoundingClientRect().left)/scaleRef.current;
-        let y=(event.touches[0].pageY-event.target.getBoundingClientRect().top)/scaleRef.current;
+        let x=(event.touches[0].pageX-event.target.getBoundingClientRect().left);
+        let y=(event.touches[0].pageY-event.target.getBoundingClientRect().top);
         if(x < 0){x = 0}
         else if(x > canvasRef.current.width){x = canvasRef.current.width;}
         if(y < 0){y = 0}
@@ -203,7 +213,7 @@ const TaskScreen = props =>  {
             y: y,
             color: colorRef.current,
             force: force,
-            editted_by: editor
+            editted_by: participantName
         };
         const newEditLogs = [...editLogsRef.current, editLog];
         updateEditLogs(newEditLogs);
@@ -213,7 +223,6 @@ const TaskScreen = props =>  {
     const endDrawing = event => {
         const currentTime = new Date().getTime();
         const timeOrigin = performance.timeOrigin;
-        console.log("diff -> ", timeOrigin+event.timeStamp-currentTime);
         const lastCoordinate = coordinatesRef.current[coordinatesRef.current.length-1];
         const lastX = lastCoordinate.x;
         const lastY = lastCoordinate.y;
@@ -225,11 +234,11 @@ const TaskScreen = props =>  {
             setDrawing(false);
             　const ctx = getContext();
             　ctx.closePath();
-            eraseInsideLine(coordinatesRef.current);
+            // eraseInsideLine(coordinatesRef.current);
             if (colorRef.current !== '#FFF') {
                 fillInsideLine(colorRef.current, coordinatesRef.current);
             }
-            const newEditings = [...editingsRef.current, {editor: editor, operation: operationRef.current, color:colorRef.current, coordinates: coordinatesRef.current}];
+            const newEditings = [...editingsRef.current, {editor: participantName, color:colorRef.current, coordinates: coordinatesRef.current}];
             updateEditings(newEditings);
             coordinatesRef.current = [];
             setRedoStack([]);
@@ -242,11 +251,15 @@ const TaskScreen = props =>  {
                 y: NaN,
                 color: NaN,
                 force: NaN,
-                editted_by: editor
+                editted_by: participantName
             };
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
         } else {
+            const newEditings = [...editingsRef.current, {editor: participantName, color:colorRef.current, coordinates: coordinatesRef.current}];
+            updateEditings(newEditings);
+            coordinatesRef.current = [];
+            setRedoStack([]);
             const editLog = {
                 editted_at: currentTime,
                 editted_at_: timeOrigin+event.timeStamp,
@@ -256,7 +269,7 @@ const TaskScreen = props =>  {
                 y: NaN,
                 color: NaN,
                 force: NaN,
-                editted_by: editor
+                editted_by: participantName
             };
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
@@ -275,7 +288,7 @@ const TaskScreen = props =>  {
             ctx.stroke();
         }
         ctx.closePath();
-        ctx.fill();
+        // ctx.fill();
     };
     const eraseInsideLine = coordinates_ => {
         const ctx = getContext();
@@ -289,60 +302,6 @@ const TaskScreen = props =>  {
         }
         ctx.closePath();
         ctx.fill();
-    };
-    const touchAndFill = event => {
-        const startX= parseInt((event.touches[0].pageX-event.target.getBoundingClientRect().left)/scale);
-        const startY= parseInt((event.touches[0].pageY-event.target.getBoundingClientRect().top)/scale);
-        floodFill(colorRef.current, [startX, startY]);
-        const newEditings = [...editingsRef.current, {editor: editor, operation: operationRef.current, color:colorRef.current, coordinate: [startX, startY]}];
-        updateEditings(newEditings)
-        setRedoStack([]);
-    };
-    const floodFill = (color, coordinate) => {
-        const startX = coordinate[0];
-        const startY = coordinate[1];
-        const ctx = getContext();
-        const src = ctx.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height);
-        const startIndex = coord2index(startX, startY);
-        const point = {x: startX, y: startY};
-        const buf = [];
-        const targetColorList = [src.data[startIndex], src.data[startIndex+1], src.data[startIndex+2],  src.data[startIndex+3]];
-        buf.push(point);
-        let count = 0;
-        while (buf.length > 0){
-            const target = buf.pop();
-            const index = coord2index(target.x, target.y);
-            const colorList=[src.data[index], src.data[index+1], src.data[index+2], src.data[index+3]];
-            if (target.x < 0 || target.x >= canvasRef.current.width || target.y < 0 || target.y >= canvasRef.current.height){
-                continue
-            }
-            if (((colorList[0] === targetColorList[0]) && (colorList[1] === targetColorList[1]) && (colorList[2] === targetColorList[2]) && (targetColorList[0]+targetColorList[1]+targetColorList[2])!==0) ||
-            ((colorList[0] === targetColorList[0]) && (colorList[1] === targetColorList[1]) && (colorList[2] === targetColorList[2]) && (colorList[3] === targetColorList[3]) && (targetColorList[0]+targetColorList[1]+targetColorList[2])===0)) {
-                src.data[index] = color2list(color)[0];
-                src.data[index+1] = color2list(color)[1];
-                src.data[index+2] = color2list(color)[2];
-                src.data[index+3] = color2list(color)[3];
-                buf.push({ x: target.x - 1, y: target.y });
-                buf.push({ x: target.x, y: target.y + 1 });
-                buf.push({ x: target.x + 1, y: target.y });
-                buf.push({ x: target.x, y: target.y - 1 });
-            }
-            count ++;
-            if(count > 2000000){break}
-        }
-        ctx.putImageData(src, 0, 0);
-    };
-    const coord2index = (x, y) => {
-        return 4*y*canvasRef.current.width+4*x
-    }
-    const color2list = color => {
-        let colorList=[]
-        if (color==="#0FF"){colorList = [0, 255, 255, 255 * alphaRef.current]}
-        else if (color==="#0F0") {colorList = [0,255, 0, 255 * alphaRef.current]}
-        else if (color==="#00F") {colorList = [0,0, 255, 255 * alphaRef.current]}
-        else if (color==="#000") {colorList = [0, 0, 0, 255 * alphaRef.current]}
-        else if (color==="#FFF") {colorList = [255, 255, 255, 0]}
-        return colorList
     };
     const clearCanvas = () => {
         const ctx = getContext();
@@ -367,7 +326,7 @@ const TaskScreen = props =>  {
                 y: NaN,
                 color: NaN,
                 force: NaN,
-                editted_by: editor
+                editted_by: participantName
             };
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
@@ -391,7 +350,7 @@ const TaskScreen = props =>  {
                 y: NaN,
                 color: NaN,
                 force: NaN,
-                editted_by: editor
+                editted_by: participantName
             };
             const newEditLogs = [...editLogsRef.current, editLog];
             updateEditLogs(newEditLogs);
@@ -400,13 +359,9 @@ const TaskScreen = props =>  {
     const fromData = data => {
         for(let index in data){
             const editLog_ = data[index];
-            if (editLog_.operation === "draw") {
-                eraseInsideLine(editLog_.coordinates);
-                if (editLog_.color !== '#FFF') {
-                    fillInsideLine(editLog_.color, editLog_.coordinates);
-                }
-            } else if (editLog_.operation === "fill") {
-                floodFill(editLog_.color, editLog_.coordinate);
+            // eraseInsideLine(editLog_.coordinates);
+            if (editLog_.color !== '#FFF') {
+                fillInsideLine(editLog_.color, editLog_.coordinates);
             }
         }
     };
@@ -418,6 +373,24 @@ const TaskScreen = props =>  {
         setEditLogs(newEditLogs);
         editLogsRef.current = newEditLogs;
     };
+    const start = event => {
+        const currentTime = new Date().getTime();
+        const timeOrigin = performance.timeOrigin;
+        const editLog = {
+            editted_at: currentTime,
+            editted_at_: timeOrigin+event.timeStamp,
+            sample_name: sampleName,
+            operation_type: 'start',
+            x: NaN,
+            y: NaN,
+            color: NaN,
+            force: NaN,
+            editted_by: participantName
+        }
+        setIsTaskOngoing(true);
+        const newEditLogs = [...editLogsRef.current, editLog];
+        updateEditLogs(newEditLogs);
+    }
     const save = event => {
         const currentTime = new Date().getTime();
         const timeOrigin = performance.timeOrigin;
@@ -430,16 +403,16 @@ const TaskScreen = props =>  {
             y: NaN,
             color: NaN,
             force: NaN,
-            editted_by: editor
+            editted_by: participantName
         }
         setSaving(true);
         const newEditLogs = [...editLogsRef.current, editLog];
         updateEditLogs(newEditLogs);
     };
-    const post = () => {
+    const postResult = () => {
         const dataURL = canvasRef.current.toDataURL();
         const obj = {
-            editor: editor,
+            participant_name: participantName,
             image: dataURL,
             sample_name: sampleName,
             edit_logs: editLogs,
@@ -454,6 +427,7 @@ const TaskScreen = props =>  {
         fetch(`${process.env.REACT_APP_DEV_API_URL}/api/save?mode=write`, {method, headers, body})
             .then(handleErrors)
             .then(updateSampleName)
+            .then(setIsTaskOngoing(false))
             .catch(error => console.log(error));
     };
     const handleErrors = response => {
@@ -463,9 +437,26 @@ const TaskScreen = props =>  {
         return response;
     };
     const updateSampleName = () => {
-        sampleIndexRef.current += 1;
-        sampleNameRef.current = sampleNames[sampleIndexRef.current]
-        setSampleName(sampleNames[sampleIndexRef.current]);
+        if (sampleNames.length-1 > sampleIndexRef.current) {
+            sampleIndexRef.current += 1;
+            SetSampleIndex(sampleIndexRef.current);
+            sampleNameRef.current = sampleNames[sampleIndexRef.current]
+            setSampleName(sampleNames[sampleIndexRef.current]);
+        } else {
+            toQuestionnaire();
+        }
+    };
+    // const toRest = () => {
+    //     props.history.push({
+    //         pathname: "/experiment/rest",
+    //         state: {participantName: participantName, type: "post"}
+    //     });
+    // };
+    const toQuestionnaire = () => {
+        props.history.push({
+          pathname: "/experiment/questionnaire",
+          state: {participantName: participantName, type: "post"}
+        });
     };
     const initialize = () => {
         const currentTime = new Date().getTime();
@@ -483,19 +474,32 @@ const TaskScreen = props =>  {
             y: NaN,
             color: NaN,
             force: NaN,
-            editted_by: editor
+            editted_by: participantName
         };
         const newEditLogs = [editLog];
         updateEditLogs(newEditLogs);
     };
+    const _post = () => {
+        const currentTime = new Date().getTime();
+        const log = {
+          at: currentTime,
+          participant_name: participantName,
+          event_name: "task_started",
+        };
+        const obj = {
+            participant_name: participantName,
+            log: log,
+        };
+        post(obj);
+      };
 
     const styles = {
         nameForm:{border:"solid 0px"},
         magnification:{marginLeft:"0px",width:"50px", border:"solid 0px"},
 
-        canvasContainer: {overflow:`${scale !== 1 ? "scroll" : "hidden"}`, position: 'relative', width:"640px", height:"640px", marginRight:"30px"},
-        canvas:{position:'absolute', opacity:`${display ? 1 : 0}`, transformOrigin:`${originX}% ${originY}%`, transform:`scale(${scale})`},
-        img: {position:'absolute', width:"630px", height:"630px", transformOrigin:`${originX}% ${originY}%`, transform:`scale(${scale})`},
+        canvasContainer: {overflow:"hidden", position: 'relative', width:"640px", height:"640px", marginRight:"30px", display:isTaskOngoing?"block":"none"},
+        canvas:{position:'absolute', opacity:1, transformOrigin:`${originX}% ${originY}%`, display:isTaskOngoing?"block":"none"},
+        img: {position:'absolute', width:"630px", height:"630px", transformOrigin:`${originX}% ${originY}%`, display:isTaskOngoing?"block":"none"},
 
         buttonContainer: {width:"100%", height:80, display: "flex", flexDirection: "row", justifyContent: "center"},
         button: {cursor: 'pointer', margin: '5px', width:"40px", height:"40px"},
@@ -503,32 +507,37 @@ const TaskScreen = props =>  {
         blueButton: {cursor: 'pointer', margin: '5px', color: 'blue',width:"40px",height:"40px"},
         blueGreenButton: {cursor: 'pointer', margin: '5px', color: '#0FF',width:"40px",height:"40px"},
         blackButton: {cursor: 'pointer', margin: '5px', color: 'black',width:"40px",height:"40px"},
-        startPoint:{zIndex:"10", position:"absolute", border: 'solid', marginLeft:`${(initialCoordinate.x-startPointSize/2)*scale}px`,  marginTop:`${(initialCoordinate.y-startPointSize/2)*scale}px`, width:`${startPointSize}px`, height:`${startPointSize}px`, borderRadius: '50%', opacity:`${drawing ? 1 : 0}`},
+        startPoint:{zIndex:"10", position:"absolute", border: 'solid', marginLeft:`${initialCoordinate.x-startPointSize/2}px`,  marginTop:`${initialCoordinate.y-startPointSize/2}px`, width:`${startPointSize}px`, height:`${startPointSize}px`, borderRadius: '50%', opacity:`${drawing ? 1 : 0}`},
     };
-  
+    
     return (
-        <div>
+        <div className={classes.root}>
+            <div style = {{display:isTaskOngoing?"none":"block"}}>
+                {sampleIndex+1}/{sampleNames.length}
+            </div>
             <div style = {{width:"100%", display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <div style={styles.canvasContainer} ref={canvasContainerRef}>
-                    <img src={process.env.REACT_APP_DEV_API_URL+"/static/image/"+sampleName+imageExt} style={styles.img} alt={sampleName}/>
+                    <img src={process.env.REACT_APP_DEV_API_URL+"/static/image/"+sampleName+imageExt+"?"+time.toString()} style={styles.img} alt={sampleName}/>
                     <canvas
-                    className="canvas"
-                    ref={canvasRef}
-                    width="630px"
-                    height="630px"
-                    style={styles.canvas}
+                        className="canvas"
+                        ref={canvasRef}
+                        width="630px"
+                        height="630px"
+                        style={styles.canvas}
                     >
                     </canvas>
-                <div style={styles.startPoint}></div>
+                {/* <div style={styles.startPoint}></div> */}
             </div>
             </div>
             <div style={styles.buttonContainer}>
-                <Button variant="outlined" color="primary" className={classes.button} onClick={undo}><FaUndo style = {{margin:"auto"}} /></Button>
-                <Button variant="outlined" color="primary" className={classes.button} onClick={redo}><FaRedo style = {{margin:"auto"}} /></Button>
-                <Button variant="outlined" color="primary" className={classes.button} onClick={save}>Next</Button>
+                <Button variant="contained" color="secondary" className={classes.button} style = {{display:isTaskOngoing?"block":"none"}} onClick={undo}><FaUndo style = {{margin:"auto"}}/></Button>
+                <Button variant="contained" color="secondary" className={classes.button} style = {{display:isTaskOngoing?"block":"none"}} onClick={redo}><FaRedo style = {{margin:"auto"}} /></Button>
+                <Button variant="contained" color="secondary" className={classes.button} style = {{display:isTaskOngoing?"block":"none"}} onClick={save}>次へ</Button>
+                <Button variant="contained" color="secondary" className={classes.button} style = {{display:isTaskOngoing?"none":"block"}} onClick={start}>はじめる</Button>
             </div>
         </div>
     );
+    
 }
 
 export default TaskScreen;

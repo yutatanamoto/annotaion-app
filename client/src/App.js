@@ -13,9 +13,7 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   return (
-    <div classesname={classes.root}>
-      <MyRouter />
-    </div>
+      <MyRouter classesname={classes.root}/>
   );
 }
 

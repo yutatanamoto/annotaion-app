@@ -15873,6 +15873,17 @@
         "editted_by": "mashima"
     },
     {
+        "editted_at": 1608605516790,
+        "editted_at_": 1608605516789.41,
+        "sample_name": "3",
+        "operation_type": "stop_drawing",
+        "x": null,
+        "y": null,
+        "color": null,
+        "force": null,
+        "editted_by": "mashima"
+    },
+    {
         "editted_at": 1608605516817,
         "editted_at_": 1608605516815.5598,
         "sample_name": "3",
